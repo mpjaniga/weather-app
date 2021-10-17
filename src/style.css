@@ -75,3 +75,12 @@ li:first-letter {
   top: -34px;
   font-weight: normal;
 }
+
+.weather-temperature .active {
+  color: gray;
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
