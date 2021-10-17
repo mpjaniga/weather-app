@@ -41,6 +41,7 @@ li {
   line-height: 19px;
   margin: 0px;
   padding: 0px;
+  text-transform: capitalize;
 }
 
 .wrapper {
