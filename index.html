@@ -17,19 +17,29 @@
     <div class="container">
       <div class="wrapper">
         <div class="weather-app">
-          <h1>Buffalo</h1>
-          <h6 id="current-date">Friday 05:00</br>
-            Clear
+          <div class="overview">
+            <h1>Buffalo</h1>
+            <h6 id="current-date">
+              Friday 05:00
+              <br />
+              Clear
             </h6>
-          </h6>
-         
+          </div>
           <div class="row">
             <div class="col-6">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                alt="Clear"
-              />
-              12°C | °F
+              <div class="clearfix weather-temperature">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                  alt="Clear"
+                  class="float-left"
+                />
+                <div class="float-left">
+                  <strong
+                    >12
+                    <span class="units">°C | <a href="#">°F</a></span>
+                  </strong>
+                </div>
+              </div>
             </div>
             <div class="col-6">
               <ul>
