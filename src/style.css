@@ -41,9 +41,11 @@ li {
   line-height: 19px;
   margin: 0px;
   padding: 0px;
-  text-transform: capitalize;
 }
 
+li:first-letter {
+  text-transform: capitalize;
+}
 .wrapper {
   max-width: 600px;
   margin: 10px auto;
