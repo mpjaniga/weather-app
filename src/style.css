@@ -126,3 +126,7 @@ li:first-letter {
 .weather-forecast-temp {
   font-size: 13px;
 }
+
+.weather-forecast-max {
+  font-weight: bolder;
+}

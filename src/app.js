@@ -30,6 +30,7 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
+  let i = 1;
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
@@ -42,7 +43,7 @@ function displayForecast(response) {
         `
   
                 <div class="col-2">
-                  <div class="weather-forecast-date">${formatDay(
+                  <div class="weather-forecast-date" id="">${formatDay(
                     forecastDay.dt
                   )}</div>
                   <img
@@ -54,17 +55,18 @@ function displayForecast(response) {
                   />
                   <div class="weather-forecast-temp">
                   
-                  <span class ="weather-forecast-max"> ${Math.round(
-                    forecastDay.temp.max
-                  )}° </span>
-                  <span class="weather-forecast-min"> ${Math.round(
-                    forecastDay.temp.min
-                  )}° </span>
+                  <span class ="weather-forecast-max" id="max` +
+        i +
+        `"> ${Math.round(forecastDay.temp.max)} </span>°
+                  <span class="weather-forecast-min" id="min` +
+        i +
+        `"> ${Math.round(forecastDay.temp.min)} </span>°
                   </div>
                 </div>
-              
+             
               `;
     }
+    i = i + 1;
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -125,6 +127,20 @@ function displayFahrenheitTemp(event) {
   fahrenheitLink.classList.add("active");
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+
+  for (let j = 1; j < 7; j++) {
+    let myMax = document.getElementById("max" + j).innerHTML;
+    let myMaxAgain = parseInt(myMax);
+    let myMaxFahrenheit = Math.round((myMaxAgain * 9) / 5 + 32);
+    let myMaxFinal = myMaxFahrenheit.toString();
+    document.getElementById("max" + j).innerHTML = myMaxFinal;
+
+    let myMin = document.getElementById("min" + j).innerHTML;
+    let myMinAgain = parseInt(myMin);
+    let myMinFahrenheit = Math.round((myMinAgain * 9) / 5 + 32);
+    let myMinFinal = myMinFahrenheit.toString();
+    document.getElementById("min" + j).innerHTML = myMinFinal;
+  }
 }
 
 function displayCelsiusTemp(event) {
@@ -134,6 +150,20 @@ function displayCelsiusTemp(event) {
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
+
+  for (let j = 1; j < 7; j++) {
+    let myMax = document.getElementById("max" + j).innerHTML;
+    let myMaxAgain = parseInt(myMax);
+    let myMaxCelsius = Math.round((myMaxAgain - 32) / 1.8);
+    let myMaxFinal = myMaxCelsius.toString();
+    document.getElementById("max" + j).innerHTML = myMaxFinal;
+
+    let myMin = document.getElementById("min" + j).innerHTML;
+    let myMinAgain = parseInt(myMin);
+    let myMinCelsius = Math.round((myMinAgain - 32) / 1.8);
+    let myMinFinal = myMinCelsius.toString();
+    document.getElementById("min" + j).innerHTML = myMinFinal;
+  }
 }
 
 let celsiusTemp = null;
